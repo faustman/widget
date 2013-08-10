@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
 </head>
-  <body ng-app="displify">
+  <body>
     <!--[if lt IE 7]>
       <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
@@ -26,7 +26,10 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+    <div class="container">
+        <h1>Hello!</h1>
+        <p>Loresam</p>
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
@@ -36,7 +39,11 @@
       s.parentNode.insertBefore(g,s)}(document,'script'));
     </script>
 
-    <script src="bower_components/jquery/jquery.js"></script>
+    <script>
+      var _dsplfy = { id: 'test', on: '.adv' };
+    </script>
+
+    <!--<script src="bower_components/jquery/jquery.js"></script>-->
     <script src="bower_components/angular/angular.js"></script>
 
         <!-- build:js scripts/modules.js -->
@@ -47,8 +54,10 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+        <script src="scripts/services/settings.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/directives/img.js"></script>
+        <script src="scripts/run.js"></script>
         <!-- endbuild -->
 </body>
 </html>
