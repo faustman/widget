@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Directive: img', function () {
-  beforeEach(module('widgetApp'));
+  beforeEach(module('displify'));
 
   var element;
 
