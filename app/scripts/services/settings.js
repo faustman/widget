@@ -10,10 +10,12 @@ angular.module('displify.settings', [])
 
     // Private constructor
     function Settings($log) {
-      this.account = account;
+      this.getAccount = function(){
+        return account;
+      }
 
-      this.test = function(){
-        console.log($log)
+      this.setAccount = function(a){
+        account = a
       }
 
       return this;

@@ -8,6 +8,6 @@ var displify = angular.module('displify', ['displify.settings'])
 
   }])
   .run(function($settings){
-    console.log($settings);
+    console.log($settings.getAccount());
   })
 
