@@ -8,8 +8,9 @@ var displify = angular.module('displify', ['displify.settings', 'displify.transp
     $settingsProvider.initClientSettings();
 
   }])
-  .run(function($settings){
+  .run(function($settings, $transport){
     console.dir($settings);
-    console.log($settings.account);
+    console.log($settings.account + '; ');
+    $transport.pageSettings();
   })
 
