@@ -7,12 +7,13 @@ describe('Service: settings', function () {
 
   // instantiate service
   var settings;
-  beforeEach(inject(function (_settings_) {
-    settings = _settings_;
+  beforeEach(inject(function ($settings) {
+    settings = $settings;
   }));
 
   it('should do something', function () {
     expect(!!settings).toBe(true);
+    console.log(settings);
   });
 
 });
