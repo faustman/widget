@@ -4,10 +4,12 @@ var displify = angular.module('displify', ['displify.settings', 'displify.transp
   .config(['$settingsProvider', function($settingsProvider){
     console.log('init');
 
-    $settingsProvider.getClientSettings();
+    console.dir($settingsProvider);
+    $settingsProvider.initClientSettings();
 
   }])
-  .run(function($settings, $transport){
-    $transport.smthng();
+  .run(function($settings){
+    console.dir($settings);
+    console.log($settings.account);
   })
 

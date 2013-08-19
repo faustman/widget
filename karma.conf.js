@@ -9,14 +9,19 @@ files = [
   JASMINE_ADAPTER,
   'app/bower_components/angular/angular.js',
   'app/bower_components/angular-mocks/angular-mocks.js',
+
+  'app/scripts/services/settings.js',
   'app/scripts/*.js',
   'app/scripts/**/*.js',
+  'test/mock/*.js',
   'test/mock/**/*.js',
   'test/spec/**/*.js'
 ];
 
 // list of files to exclude
-exclude = [];
+exclude = [
+  'app/scripts/run.js'
+];
 
 // test results reporter to use
 // possible values: dots || progress || growl
