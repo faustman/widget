@@ -4,10 +4,12 @@ var displify = angular.module('displify', ['displify.settings'])
   .config(['$settingsProvider', function($settingsProvider){
     console.log('init');
 
-    $settingsProvider.getClientSettings();
+    console.dir($settingsProvider);
+    $settingsProvider.initClientSettings();
 
   }])
   .run(function($settings){
-    console.log($settings.getAccount());
+    console.dir($settings);
+    console.log($settings.account);
   })
 

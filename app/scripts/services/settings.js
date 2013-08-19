@@ -5,41 +5,38 @@ angular.module('displify.settings', [])
   .provider('$settings', function() {
 
     // Private variables
-    var account;
-    var client_settings_var = "_dsplfy";
+    var _account;
+    var _client_settings_var = "_dsplfy";
+    var _server_url = "http://localhost:4545/";
 
     // Private constructor
     function Settings($log) {
-      this.getAccount = function(){
-        return account;
-      }
-
-      this.setAccount = function(a){
-        account = a
-      }
 
       return this;
     }
 
+    // Public API for configuration
+    Settings.prototype = {
+      get account()    { return _account; },
+      get server_url() { return _server_url; }
+    }
+
+    // Depends injection
     Settings.$inject = ['$log']
 
-    // Public API for configuration
-    this.setAccount = function(a) {
-      account = a;
-    };
-    this.getAccount = function() {
-      return account;
-    }
-
-    this.getClientSettings = function(){
+    var initClientSettings = function(){
       console.log('get client settings');
-      var client_settings = window[client_settings_var];
-      if(!client_settings && client_settings.id) throw new Error('' + client_settings_var + ' client settings id not set.');
+      var client_settings = window[_client_settings_var] || {};
+      if(!client_settings.id) throw new Error('' + _client_settings_var + ' client settings id not set.');
 
-      this.setAccount(client_settings.id);
+      _account = client_settings.id;
     }
 
-    // Method for instantiating
-    this.$get = Settings;
+    return {
+      initClientSettings: initClientSettings,
+      $get: function(){
+        return new Settings;
+      }
+    }
   });
 
