@@ -1,0 +1,73 @@
+/* line 8, displify.scss */
+
+.displify img {
+  border: 0;
+}
+
+/* line 11, displify.scss */
+
+.displify figcaption {
+  background: rgba(0, 0, 0, 0.5);
+  background-image: url("/images/SUR.png");
+  background-repeat: no-repeat;
+  color: white;
+  padding: 1rem;
+}
+
+/* line 17, displify.scss */
+
+.displify figcaption:hover,
+.displify figcaption:active {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* line 25, displify.scss */
+
+.effeckt-caption {
+  position: relative;
+  float: left;
+  overflow: hidden;
+}
+
+/* line 29, displify.scss */
+
+.effeckt-caption:nth-child(2n) {
+  margin-right: 0;
+}
+
+/* line 32, displify.scss */
+
+.effeckt-caption img {
+  -webkit-transition: 500ms;
+  transition: 500ms;
+}
+
+/* line 35, displify.scss */
+
+.effeckt-caption figcaption {
+  position: absolute;
+  -webkit-transition: 500ms;
+  transition: 500ms;
+  width: 100%;
+}
+
+/* line 44, displify.scss */
+
+.effeckt-caption-2 figcaption {
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  -webkit-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  transform: translateY(100%);
+}
+
+/* line 51, displify.scss */
+
+.effeckt-caption-2:hover figcaption,
+.effeckt-caption-2:active figcaption {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}

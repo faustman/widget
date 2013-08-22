@@ -1,0 +1,56 @@
+@import "compass/css3/transition";
+@import "compass/css3/transform";
+
+$effeckt-transition-duration: 500ms !default;
+$effeckt-caption-transition-duration: $effeckt-transition-duration !default;
+
+.displify {
+  img {
+    border: 0;
+  }
+  figcaption {
+    background: rgba(0, 0, 0, 0.5);
+    background-image: url('/images/SUR.png');
+    background-repeat: no-repeat;
+    color: white;
+    padding: 1rem;
+    &:hover, &:active {
+      background: rgba(0, 0, 0, 0.8);
+
+    }
+  }
+}
+
+// Base
+.effeckt-caption {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  &:nth-child(2n) {
+    margin-right: 0;
+  }
+  img {
+    transition: $effeckt-caption-transition-duration;
+  }
+  figcaption {
+    position: absolute;
+    transition: $effeckt-caption-transition-duration;
+    width: 100%;
+  }
+}
+
+// Effect 2: Slide Up
+.effeckt-caption-2 {
+  figcaption {
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  &:hover, &:active {
+    figcaption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

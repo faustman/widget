@@ -1,11 +1,17 @@
 'use strict';
 
-displify.directive('img', function () {
+displify.directive('adv', function () {
+  console.log('Directive load');
   return {
-    template: '<div></div>',
-    restrict: 'E',
+    replace: true,
+    // transclude: true,
+    templateUrl: "/views/wrap.html",
+    restrict: 'C',
+    scope: {
+      src: '@'
+    },
     link: function postLink(scope, element, attrs) {
-      element.text('this is the img directive');
+      // element.text('this is the img directive');
     }
   };
 });

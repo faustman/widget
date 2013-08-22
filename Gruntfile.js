@@ -37,6 +37,10 @@ module.exports = function (grunt) {
         files: ['test/spec/{,*/}*.coffee'],
         tasks: ['coffee:test']
       },
+      compass: {
+        files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        tasks: ['compass:dev']
+      },
       livereload: {
         options: {
           livereload: LIVERELOAD_PORT
@@ -196,6 +200,34 @@ module.exports = function (grunt) {
       //   }
       // }
     },
+    compass: {
+      dev: {
+        options: {
+          sassDir: 'app/styles',
+          cssDir: 'app/styles'
+        }
+      },
+      // prod: {
+        // // NOT WORK
+        // src: 'app/styles',
+        // dest: 'app/styles',
+        // outputstyle: 'compressed',
+        // linecomments: false,
+        // forcecompile: true,
+        // require: [],
+        // debugsass: false,
+        // images: '/path/to/images',
+        // relativeassets: true
+      // }
+    },
+    autoprefixer: {
+      dist: {
+        options: {
+          
+        },
+        files: {'app/styles/displify.css': 'app/styles/displify.css'}
+      }
+    },
     htmlmin: {
       dist: {
         options: {
@@ -287,6 +319,7 @@ module.exports = function (grunt) {
       }
     }
   });
+  grunt.loadNpmTasks('grunt-contrib-compass');
 
   grunt.registerTask('server', function (target) {
     if (target === 'dist') {
@@ -296,6 +329,8 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'concurrent:server',
+      'compass:dev',
+      'autoprefixer',
       'connect:livereload',
       'open',
       'watch'

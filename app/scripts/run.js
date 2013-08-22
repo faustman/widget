@@ -1,3 +1,5 @@
 'use strict';
 
-angular.bootstrap( window.body, ['displify']);
+angular.element(document).ready(function(){
+  angular.bootstrap( document.body, ['displify']);
+})
