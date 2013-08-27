@@ -37,7 +37,9 @@
     "connect-livereload": "~0.2.0",
     "grunt-google-cdn": "~0.2.0",
     "grunt-ngmin": "~0.0.2",
-    "grunt-autoprefixer": "~0.2.20130806"
+    "grunt-autoprefixer": "~0.2.20130806",
+    "express": "~3.3.5",
+    "grunt-express-server": "~0.4.3"
   },
   "engines": {
     "node": ">=0.8.0"

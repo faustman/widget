@@ -51,6 +51,13 @@ module.exports = function (grunt) {
           '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
+      },
+      express: {
+        files:  [ 'endpoints/*.js' ],
+        tasks:  [ 'express:dev' ],
+        options: {
+          nospawn: true //Without this option specified express won't be reloaded
+        }
       }
     },
     connect: {
@@ -317,9 +324,31 @@ module.exports = function (grunt) {
           ]
         }
       }
+    },
+    express: {
+      options: {
+        port: 3000
+       },
+      dev: {
+        options: {
+          script: 'endpoints/server.js'
+        }
+      },
+      prod: {
+        options: {
+          script: 'endpoints/server.js',
+          node_env: 'production'
+        }
+      },
+      test: {
+        options: {
+          script: 'endpoints/server.js'
+        }
+      }
     }
   });
   grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-express-server');
 
   grunt.registerTask('server', function (target) {
     if (target === 'dist') {
@@ -333,6 +362,7 @@ module.exports = function (grunt) {
       'autoprefixer',
       'connect:livereload',
       'open',
+      'express:dev',
       'watch'
     ]);
   });
